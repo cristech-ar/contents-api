@@ -4,7 +4,7 @@ const { authenticate } = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-router.get('/actors', authenticate, getActors);
-router.post('/actors', authenticate, addActor);
+router.get('/', authenticate, getActors);
+router.post('/', authenticate, addActor);
 
 module.exports = router;

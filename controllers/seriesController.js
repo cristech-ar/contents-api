@@ -40,4 +40,14 @@ const getEpisodeInfo = async (req, res) => {
   }
 };
 
-module.exports = { getSeries, getEpisodeInfo };
+const addSerie = async (req, res) => {
+  try {
+    const serie = new Series(req.body);
+    await serie.save();
+    res.status(201).json(serie);
+  } catch (error) {
+    res.status(400).json({ message: 'Error creating serie', error });
+  }
+};
+
+module.exports = { getSeries, getEpisodeInfo, addSerie };

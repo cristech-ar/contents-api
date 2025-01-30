@@ -127,7 +127,8 @@ curl -X POST http://localhost:7000/auth/refresh-token \
 **Example Request:**
 
 ```bash
-curl -X GET http://localhost:7000/v1/movies
+curl -X GET http://localhost:7000/v1/movies \
+     -H "Authorization: Bearer <token>"
 ```
 
 **Example Response:**
@@ -151,7 +152,10 @@ curl -X GET http://localhost:7000/v1/movies
 - **Description:** Adds a new movie.
 - **Required Fields:**
   - `title` (string)
+  - `summary` (string)
+  - `ratings` (string)
   - `director` (string)
+  - `genre` (string)
   - `actors` (array of strings)
   - `releaseYear` (number)
 
@@ -160,7 +164,18 @@ curl -X GET http://localhost:7000/v1/movies
 ```bash
 curl -X POST http://localhost:7000/v1/movies \  
      -H "Content-Type: application/json" \  
-     -d '{"title": "Inception", "director": "Christopher Nolan", "actors": ["Leonardo DiCaprio"], "releaseYear": 2010}'
+     -H "Authorization: Bearer <token>" \ 
+     -d '{
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "actors": [
+        "Leonardo DiCaprio"
+    ],
+    "releaseYear": 2010,
+    "ratings": "PG-13",
+    "summary": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+    "genre":"sci-fi"
+'}
 ```
 
 **Example Response:**
@@ -189,30 +204,203 @@ curl -X POST http://localhost:7000/v1/movies \
 
 ```bash
 curl -X GET http://localhost:7000/v1/series
+     -H "Authorization: Bearer <token>" \ 
 ```
 
 **Example Response:**
 
 ```json
 [
-  {
-    "_id": "64f8b8f7e4b0d1a2b3c4d5e7",
-    "title": "Breaking Bad",
-    "seasons": [
-      {
-        "seasonNumber": 1,
-        "episodes": [
-          {
-            "episodeNumber": 1,
-            "title": "Pilot",
-            "director": "Vince Gilligan",
-            "actors": ["Bryan Cranston", "Aaron Paul"]
-          }
-        ]
-      }
-    ]
-  }
+    {
+        "_id": "679bffd04e57f93bc4168975",
+        "title": "Friends",
+        "seasons": [
+            {
+                "seasonNumber": 1,
+                "episodes": [
+                    {
+                        "episodeNumber": 1,
+                        "title": "The One Where Monica Gets a Roommate",
+                        "summary": "Monica gets a new roommate, Rachel, who leaves her fiancé at the altar.",
+                        "director": "James Burrows",
+                        "actors": [
+                            "Jennifer Aniston",
+                            "Courteney Cox",
+                            "Lisa Kudrow",
+                            "Matt LeBlanc",
+                            "Matthew Perry",
+                            "David Schwimmer"
+                        ],
+                        "_id": "679bffd04e57f93bc4168977"
+                    }
+                ],
+                "_id": "679bffd04e57f93bc4168979"
+            }
+        ],
+        "description": "A comedy series about six friends living in New York City.",
+        "__v": 0
+    }
 ]
+
+```
+#### Create Series
+
+- **Description:** Create a new TV serie.
+
+**Example Request:**
+
+```bash
+curl -X POST http://localhost:7000/v1/series -H "Content-Type: application/json" 
+    -H "Authorization: Bearer <token>" \ 
+    -d '{
+  "title": "Chicago Fire",
+  "description": "A drama series that follows the lives of firefighters and paramedics working at the Chicago Fire Department.",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "summary": "The firefighters and paramedics of Firehouse 51 deal with a massive fire at a pharmaceutical warehouse.",
+          "director": "Jeffrey Nachmanoff",
+          "actors": ["Jesse Spencer", "Taylor Kinney", "Monica Raymund", "Eamonn Walker"]
+        },
+        {
+          "episodeNumber": 2,
+          "title": "Mon Amour",
+          "summary": "The team responds to a fire at a nightclub, while tensions rise between Casey and Dawson.",
+          "director": "Joe Chappelle",
+          "actors": ["Jesse Spencer", "Taylor Kinney", "Monica Raymund", "Eamonn Walker"]
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "episodeNumber": 1,
+          "title": "A Problem House",
+          "summary": "The team deals with a dangerous house fire, and Severide faces a personal crisis.",
+          "director": "Joe Chappelle",
+          "actors": ["Jesse Spencer", "Taylor Kinney", "Monica Raymund", "Eamonn Walker"]
+        },
+        {
+          "episodeNumber": 2,
+          "title": "Prove It",
+          "summary": "The team investigates a suspicious fire, and Dawson struggles with a personal decision.",
+          "director": "Sanford Bookstaver",
+          "actors": ["Jesse Spencer", "Taylor Kinney", "Monica Raymund", "Eamonn Walker"]
+        }
+      ]
+    }
+  ]
+}'
+```
+**Example Response:**
+
+```json
+{
+    "title": "Chicago Fire",
+    "seasons": [
+        {
+            "seasonNumber": 1,
+            "episodes": [
+                {
+                    "episodeNumber": 1,
+                    "title": "Pilot",
+                    "summary": "The firefighters and paramedics of Firehouse 51 deal with a massive fire at a pharmaceutical warehouse.",
+                    "director": "Jeffrey Nachmanoff",
+                    "actors": [
+                        "Jesse Spencer",
+                        "Taylor Kinney",
+                        "Monica Raymund",
+                        "Eamonn Walker"
+                    ],
+                    "_id": "679c0a2743f2f14b5fdca82b"
+                },
+                {
+                    "episodeNumber": 2,
+                    "title": "Mon Amour",
+                    "summary": "The team responds to a fire at a nightclub, while tensions rise between Casey and Dawson.",
+                    "director": "Joe Chappelle",
+                    "actors": [
+                        "Jesse Spencer",
+                        "Taylor Kinney",
+                        "Monica Raymund",
+                        "Eamonn Walker"
+                    ],
+                    "_id": "679c0a2743f2f14b5fdca82c"
+                }
+            ],
+            "_id": "679c0a2743f2f14b5fdca82a"
+        },
+        {
+            "seasonNumber": 2,
+            "episodes": [
+                {
+                    "episodeNumber": 1,
+                    "title": "A Problem House",
+                    "summary": "The team deals with a dangerous house fire, and Severide faces a personal crisis.",
+                    "director": "Joe Chappelle",
+                    "actors": [
+                        "Jesse Spencer",
+                        "Taylor Kinney",
+                        "Monica Raymund",
+                        "Eamonn Walker"
+                    ],
+                    "_id": "679c0a2743f2f14b5fdca82e"
+                },
+                {
+                    "episodeNumber": 2,
+                    "title": "Prove It",
+                    "summary": "The team investigates a suspicious fire, and Dawson struggles with a personal decision.",
+                    "director": "Sanford Bookstaver",
+                    "actors": [
+                        "Jesse Spencer",
+                        "Taylor Kinney",
+                        "Monica Raymund",
+                        "Eamonn Walker"
+                    ],
+                    "_id": "679c0a2743f2f14b5fdca82f"
+                }
+            ],
+            "_id": "679c0a2743f2f14b5fdca82d"
+        }
+    ],
+    "description": "A drama series that follows the lives of firefighters and paramedics working at the Chicago Fire Department.",
+    "_id": "679c0a2743f2f14b5fdca829",
+    "__v": 0
+}
+```
+---
+#### Get a specific episode 
+
+- **Endpoint:** `GET /v1/series/{serieId}/seasons/{seasonNumber}/episodes/{episodeNumber}`
+- **Description:** Retrieves a specific data of an episode.
+  
+**Example Request:**
+
+```bash
+curl -X GET http://localhost:7000/v1/series/679bffd04e57f93bc4168975/seasons/1/episodes/1
+     -H "Authorization: Bearer <token>" \ 
 ```
 
----
+**Example Response:**
+```json
+{
+    "episodeNumber": 1,
+    "title": "The One Where Monica Gets a Roommate",
+    "summary": "Monica gets a new roommate, Rachel, who leaves her fiancé at the altar.",
+    "director": "James Burrows",
+    "actors": [
+        "Jennifer Aniston",
+        "Courteney Cox",
+        "Lisa Kudrow",
+        "Matt LeBlanc",
+        "Matthew Perry",
+        "David Schwimmer"
+    ],
+    "_id": "679bffd04e57f93bc4168977"
+}
+```

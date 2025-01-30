@@ -51,7 +51,7 @@ Build and start the application using Docker Compose:
 docker-compose up --build
 ```
 
-The API will be available at [http://localhost:3000](http://localhost:3000).
+The API will be available at [http://localhost:7000](http://localhost:7000).
 
 ---
 
@@ -67,7 +67,7 @@ The API will be available at [http://localhost:3000](http://localhost:3000).
 **Example Request:**
 
 ```bash
-curl -X GET http://localhost:3000/auth/generate-token
+curl -X GET http://localhost:7000/auth/generate-token
 ```
 
 **Example Response:**
@@ -87,7 +87,7 @@ curl -X GET http://localhost:3000/auth/generate-token
 **Example Request:**
 
 ```bash
-curl -X POST http://localhost:3000/auth/refresh-token \  
+curl -X POST http://localhost:7000/auth/refresh-token \  
      -H "Content-Type: application/json" \  
      -d '{"refreshToken": "<refreshToken>"}'
 ```
@@ -112,7 +112,7 @@ curl -X POST http://localhost:3000/auth/refresh-token \
 **Example Request:**
 
 ```bash
-curl -X GET http://localhost:3000/v1/movies
+curl -X GET http://localhost:7000/v1/movies
 ```
 
 **Example Response:**
@@ -143,7 +143,7 @@ curl -X GET http://localhost:3000/v1/movies
 **Example Request:**
 
 ```bash
-curl -X POST http://localhost:3000/v1/movies \  
+curl -X POST http://localhost:7000/v1/movies \  
      -H "Content-Type: application/json" \  
      -d '{"title": "Inception", "director": "Christopher Nolan", "actors": ["Leonardo DiCaprio"], "releaseYear": 2010}'
 ```
@@ -173,7 +173,7 @@ curl -X POST http://localhost:3000/v1/movies \
 **Example Request:**
 
 ```bash
-curl -X GET http://localhost:3000/v1/series
+curl -X GET http://localhost:7000/v1/series
 ```
 
 **Example Response:**

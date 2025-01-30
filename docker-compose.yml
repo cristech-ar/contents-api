@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./
+    container_name: nodejs-api
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/movieDB
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    environment:
+      - MONGO_INITDB_DATABASE=movieDB
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

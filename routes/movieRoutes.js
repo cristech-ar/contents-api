@@ -4,7 +4,7 @@ const { authenticate } = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-router.get('/', authenticate, test);
+router.get('/', authenticate, getMovies);
 router.post('/', authenticate, addMovie);
 
 module.exports = router;

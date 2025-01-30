@@ -22,6 +22,7 @@ Before running the API, ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v20 or higher)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Mongo DB](https://www.mongodb.com/) (if you don´t use docker)
 
 ---
 
@@ -54,6 +55,20 @@ docker-compose up --build
 The API will be available at [http://localhost:7000](http://localhost:7000).
 
 ---
+
+### 4. Run without Docker
+
+Start the MongoDB server:
+
+```bash
+mongod
+```
+
+Start the Node.js server:
+
+```bash
+node server.js
+```
 
 ## API Endpoints 💽
 

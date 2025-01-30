@@ -5,7 +5,7 @@ services:
     build: ./
     container_name: nodejs-api
     ports:
-      - "3000:3000"
+      - "7000:7000"
     environment:
       - MONGO_URI=mongodb://mongo:27017/movieDB
     env_file:

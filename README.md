@@ -41,7 +41,6 @@ cd movie-series-api
 Create a `.env` file in the root directory and add the following variables:
 
 ```
-MONGO_URI=mongodb://mongo:27017/movieDB
 JWT_SECRET= (create your own secret)
 ```
 
@@ -405,3 +404,10 @@ curl -X GET http://localhost:7000/v1/series/679bffd04e57f93bc4168975/seasons/1/e
     "_id": "679bffd04e57f93bc4168977"
 }
 ```
+## 🚀 Deployment
+The API is deployed on a VPS and can be accessed at:
+🔗 **[https://contents-api.crisdev.tech](https://contents-api.crisdev.tech)**
+
+## 🔧 Possible Improvements
+- **Add Swagger UI** to document the API and improve usability.
+- **Complete the CRUD** by implementing the remaining endpoints.

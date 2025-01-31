@@ -1,6 +1,5 @@
 # Movie and Series API 🎮
 
-![DALL·E 2025-01-31 09 48 21 - A sleek and modern banner for a README md file of a movies and TV series API  The design features a dark theme with cinematic elements such as a film ](https://github.com/user-attachments/assets/069e609b-edbe-4329-b716-eb4cbfe1e3c8)
 
 Welcome to the **Movie and Series API**, a RESTful API built with Node.js, Express, and MongoDB. This API allows you to manage movies, TV series, actors, and directors. It also includes JWT-based authentication for secure access to protected endpoints.
 

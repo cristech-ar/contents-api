@@ -1,15 +1,17 @@
-const express = require('express');
-const authRoutes = require('./routes/authRoutes');
-const movieRoutes = require('./routes/movieRoutes');
-const seriesRoutes = require('./routes/seriesRoutes');
-const actorRoutes = require('./routes/actorRoutes');
-const { connectToDatabase } = require('./config/db');
+const express = require('express'),
+    authRoutes = require('./routes/authRoutes'),
+    movieRoutes = require('./routes/movieRoutes'),
+    seriesRoutes = require('./routes/seriesRoutes'),
+    actorRoutes = require('./routes/actorRoutes'),
+    setupSwagger = require('./config/swagger'),
+    { connectToDatabase } = require('./config/db'),
 
-const app = express();
+    app = express();
 
 
 app.use(express.json());
 
+setupSwagger(app);
 
 app.use('/auth', authRoutes);
 app.use('/v1/movies', movieRoutes);

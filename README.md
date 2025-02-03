@@ -412,4 +412,4 @@ The API is deployed on a VPS and can be accessed at:
 - **Add Swagger UI** to document the API and improve usability.
 - **Complete the CRUD** by implementing the remaining endpoints.
 
-Developed By Cris Dev (https://crisdev.tech)                 https://linkedin.com/in/christian-rios-dev              contact@crisdev.tech
+Developed By Cris Dev (https://crisdev.tech)                 https://linkedin.com/in/christian-rios-dev

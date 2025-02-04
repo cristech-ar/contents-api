@@ -17,6 +17,9 @@ app.use('/auth', authRoutes);
 app.use('/v1/movies', movieRoutes);
 app.use('/v1/series', seriesRoutes);
 app.use('/v1/actors', actorRoutes);
+app.get('/', (req, res) => {
+    res.redirect(301, '/explorer');
+});
 
 const startServer = async () => {
 

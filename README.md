@@ -1,5 +1,5 @@
 # Movie and Series API 🎮
-🔗 **[https://contents-api.crisdev.tech](https://contents-api.crisdev.tech)**
+🔗 **[https://contents-api.crisdev.tech/explorer](https://contents-api.crisdev.tech/explorer)**
 
 Welcome to the **Movie and Series API**, a RESTful API built with Node.js, Express, and MongoDB. This API allows you to manage movies, TV series, actors, and directors. It also includes JWT-based authentication for secure access to protected endpoints.
 
@@ -13,6 +13,7 @@ Welcome to the **Movie and Series API**, a RESTful API built with Node.js, Expre
 - **Actors**: Retrieve and add actors.
 - **Filtering and Sorting**: Filter and sort movies by fields like `title`, `releaseYear`, etc.
 - **Docker Support**: Easy setup and deployment using Docker.
+- **Swagger Documentation** : Interactive API documentation.
 
 ---
 
@@ -409,7 +410,7 @@ The API is deployed on a VPS and can be accessed at:
 🔗 **[https://contents-api.crisdev.tech](https://contents-api.crisdev.tech)**
 
 ## 🔧 Possible Improvements
-- **Add Swagger UI** to document the API and improve usability.
+
 - **Complete the CRUD** by implementing the remaining endpoints.
 
 Developed By Cris Dev (https://crisdev.tech)                 https://linkedin.com/in/christian-rios-dev

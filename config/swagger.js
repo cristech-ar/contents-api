@@ -21,6 +21,10 @@ const swaggerOptions = {
     servers: [
       {
         url: 'https://contents-api.crisdev.tech',
+        description: 'Production server',
+      },
+      {
+        url: 'http://localhost:7000',
         description: 'Development server',
       },
     ],
